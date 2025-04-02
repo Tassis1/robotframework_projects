@@ -1,0 +1,33 @@
+
+name: CI/CD robotframework
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name : checkout repository
+        uses: actions/checkout@v4
+      - name : installer Python
+        uses : actions/setup-Python@v4 
+        with : 
+          python-version : "3.10"
+      - name: Installer le dependences 
+        run: |
+          pip install robotframework
+          pip install robotframework-selineumlibrary
+          pip install -r requirementsfile.txt
+
+      - name: lancer le test de robotframework
+        run: ./taharframe.robot -d resultats_de_test/
+      - name : telecharger les resultats 
+        uses :  actions/upload-artifact@v4
+        with : 
+          - name : afficher les resultats
+            path : resultats_de_test/
