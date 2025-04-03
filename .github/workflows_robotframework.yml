@@ -24,6 +24,9 @@ jobs:
           pip install robotframework-seleniumlibrary
           pip install -r requirements.txt
 
+      - name: Créer le dossier des résultats (si besoin)
+        run: mkdir -p resultats_de_test/
+
       - name: lancer le test de robotframework
         run: robot -d resultats_de_test/ taharframe.robot 
       - name : telecharger les resultats 
