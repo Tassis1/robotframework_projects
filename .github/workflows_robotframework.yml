@@ -12,12 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps: 
-      - name : checkout repository
+      - name: checkout repository
         uses: actions/checkout@v4
-      - name : installer Python
-        uses : actions/setup-python@v4 
-        with : 
-          python-version : "3.10"
+      - name: installer Python
+        uses: actions/setup-python@v4 
+        with: 
+          python-version: "3.10"
       - name: Installer le dependences 
         run: |
           pip install robotframework
@@ -29,8 +29,8 @@ jobs:
 
       - name: lancer le test de robotframework
         run: robot -d resultats_de_test/ taharframe.robot 
-      - name : telecharger les resultats 
-        uses :  actions/upload-artifact@v4
-        with : 
-            name : afficher les resultats
-            path : resultats_de_test/
+      - name: telecharger les resultats 
+        uses:  actions/upload-artifact@v4
+        with: 
+            name: afficher les resultats
+            path: resultats_de_test/
