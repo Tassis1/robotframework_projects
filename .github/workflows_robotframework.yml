@@ -27,7 +27,7 @@ jobs:
         run: mkdir -p resultats_de_test/
 
       - name: lancer le test de robotframework
-        run: robot -d /c/Users/admin/robotframe/taharframe.robot 
+        run: robot -d ./taharframe.robot 
       - name: telecharger les resultats 
         uses:  actions/upload-artifact@v4
         with: 
