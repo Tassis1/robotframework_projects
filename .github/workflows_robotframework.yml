@@ -22,7 +22,7 @@ jobs:
         run: |
           pip install robotframework
           pip install robotframework-seliniumlibrary
-          pip install -r requirementsfile.txt
+          pip install -r requirements.txt
 
       - name: lancer le test de robotframework
         run: robot -d resultats_de_test/ taharframe.robot 
