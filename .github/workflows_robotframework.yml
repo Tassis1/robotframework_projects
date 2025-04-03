@@ -1,39 +1,35 @@
-
-name: CI/CD RobotFramework
+name: CI/CD robotframework
 
 on:
   push:
-    branches: [main]
+    branches: main
   pull_request:
-    branches: [main]
+    branches: main
 
 jobs:
   Test:
     runs-on: ubuntu-latest
 
     steps: 
-      - name: Checkout repository
+      - name: checkout repository
         uses: actions/checkout@v4
-
-      - name: Install Python
+      - name: installer Python
         uses: actions/setup-python@v4 
         with: 
           python-version: "3.10"
-
-      - name: Install dependencies
+      - name: Installer les dependences 
         run: |
           pip install robotframework
           pip install robotframework-seleniumlibrary
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -r requirements.txt
 
-      - name: Create results directory
-        run: mkdir -p results/
+      - name: Créer le dossier des résultats (si besoin)
+        run: mkdir -p resultats_de_test/
 
-      - name: Run RobotFramework tests
-        run: robot -d results/ taharframe.robot 
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v4
+      - name: lancer le test de robotframework
+        run: robot -d /c/Users/admin/robotframe/taharframe.robot 
+      - name: telecharger les resultats 
+        uses:  actions/upload-artifact@v4
         with: 
-          name: robotframework-results
-          path: results/
+            name: afficher les resultats
+            path: resultats_de_test/
