@@ -21,7 +21,7 @@ jobs:
       - name: Installer le dependences 
         run: |
           pip install robotframework
-          pip install robotframework-seliniumlibrary
+          pip install robotframework-seleniumlibrary
           pip install -r requirements.txt
 
       - name: lancer le test de robotframework
@@ -29,5 +29,5 @@ jobs:
       - name : telecharger les resultats 
         uses :  actions/upload-artifact@v4
         with : 
-          - name : afficher les resultats
+            name : afficher les resultats
             path : resultats_de_test/
