@@ -12,9 +12,9 @@ jobs:
         -runs_on: ubuntu_latest
     steps:
       -name: code acces
-       uses: actions/chekout@v3
-      -name: Install Python
        uses: actions/checkout@v3
+      -name: Install Python
+       uses: actions/setup-python@v5
         with:
           python-version: 'pypy3.10'
       -name: install dependencies
