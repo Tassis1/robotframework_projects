@@ -34,7 +34,7 @@ jobs:
       run: |
         wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
         tar -xvzf geckodriver-v0.30.0-linux64.tar.gz
-        sudo mv geckodriver /c/Users/admin/robotframe
+        sudo mv geckodriver /c/Users/admin
 
 
     - name: Run amazonframe.robot
