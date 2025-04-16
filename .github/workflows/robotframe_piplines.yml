@@ -28,6 +28,14 @@ jobs:
         pip install robotframework-seleniumlibrary
         pip install geckodriver
         pip install -r requirements.txt
+        sudo apt-get update
+        sudo apt-get install -y firefox  
+    - name: Install Geckodriver
+      run: |
+        wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
+        tar -xvzf geckodriver-v0.30.0-linux64.tar.gz
+        sudo mv geckodriver /usr/local/bin/
+
 
     - name: Run amazonframe.robot
       run: robot amazonframe.robot
