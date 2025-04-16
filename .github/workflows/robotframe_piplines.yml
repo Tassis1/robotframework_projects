@@ -2,30 +2,30 @@
 name: CI Test Robotframework
 
 On:
-    Push:
-      Branches: Main
-    Pull_request: 
-      Branches: Main
+ Push:
+   Branches: Main
+ Pull_request: 
+   Branches: Main
 
 jobs: 
     test:
-        -runs_on: ubuntu_latest
+        runs_on: ubuntu_latest
     steps:
-      -name: code acces
+      - name: chekout code 
        uses: actions/checkout@v3
-      -name: Install Python
+      - name: Install Python
        uses: actions/setup-python@v5
         with:
           python-version: 'pypy3.10'
-      -name: install dependencies
+      - name: install dependencies
        run: |
-          pip install robotframework
-          pip install robotframework-seleniumlibrary
-          pip install geckodriver
-          pip install -r requirements.txt
-       -name: run amazonframe.robot
+        pip install robotframework
+        pip install robotframework-seleniumlibrary
+        pip install geckodriver
+        pip install -r requirements.txt
+       - name: run amazonframe.robot
         run: robot amazonframe.robot
-       -name: run facebook.robot
+       - name: run facebook.robot
         run: robot facebook.robot
       
     
