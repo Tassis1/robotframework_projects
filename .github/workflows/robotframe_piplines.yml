@@ -7,24 +7,27 @@ On:
    Branches: Main
 
 jobs: 
-    test:
-        runs_on: ubuntu_latest
-    steps:
-      - name: chekout code 
-        uses: actions/checkout@v3
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: 'pypy3.10'
-      - name: install dependencies
-        run: |
-         pip install robotframework
-         pip install robotframework-seleniumlibrary
-         pip install geckodriver
-         pip install -r requirements.txt
-      - name: run amazonframe.robot
-        run: robot amazonframe.robot
-      - name: run facebook.robot
-        run: robot facebook.robot
+  test:
+    runs_on: ubuntu_latest
+  steps:
+    - name: chekout code 
+      uses: actions/checkout@v3
+    - name: Install Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 'pypy3.10'
+    - name: install dependencies
+      run: |
+        pip install robotframework
+        pip install robotframework-seleniumlibrary
+        pip install geckodriver
+        pip install -r requirements.txt
+    - name: run amazonframe.robot
+      run: robot amazonframe.robot
+    - name: run facebook.robot
+      run: robot facebook.robot
+      
+    
+
       
     
