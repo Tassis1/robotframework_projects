@@ -30,12 +30,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y firefox wget tar
 
-      - name: Install Geckodriver
+      - name: Debug info
         run: |
-          wget https://github.com/mozilla/geckodriver/releases/download/v0.30.0/geckodriver-v0.30.0-linux64.tar.gz
-          tar -xvzf geckodriver-v0.30.0-linux64.tar.gz
-          chmod +x geckodriver
-          sudo mv geckodriver /usr/local/bin/
+         which firefox
+         which geckodriver
+         echo "FIREFOX VERSION:"
+         firefox --version
 
       - name: Run amazonframe.robot
         run: robot amazonframe.robot
