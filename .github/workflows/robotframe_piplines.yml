@@ -1,7 +1,7 @@
 
 name: CI Test Robotframework
 
-  -On:
+  On:
     Push:
       Branches: Main
     Pull_request: 
