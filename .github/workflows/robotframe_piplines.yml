@@ -2,9 +2,9 @@ name: Run Robot Framework Tests
 
 on:
   push:
-    paths:
-      - '**.robot'
+    branches: main
   pull_request:
+    branches: main 
 
 jobs:
   robot-tests:
