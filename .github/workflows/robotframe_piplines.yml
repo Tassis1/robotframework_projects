@@ -1,33 +1,31 @@
-name: CI Test Robotframework
+name: Run Robot Framework Tests
 
 on:
   push:
-    branches:
-      - main
+    paths:
+      - '**.robot'
   pull_request:
-    branches:
-      - main
 
 jobs:
-  test:
+  robot-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install robotframework
-          pip install robotframework-seleniumlibrary
-          pip install -r requirements.txt
-      - name: Run amazonframe.robot
-        run: robot amazonframe.robot
-      - name: Run facebook.robot
-        run: robot facebook.robot
+    - name: Install dependencies
+      run: |
+        pip install robotframework selenium
+        # Tu peux aussi utiliser requirements.txt s’il existe
+
+    - name: Run facebook.robot test
+      run: robot facebook.robot
+
+    - name: Run amazon.robot test
+      run: robot amazon.robot
