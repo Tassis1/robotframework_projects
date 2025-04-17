@@ -26,14 +26,13 @@ jobs:
         pip install -r requirements.txt
     - name: Istall mozilla  
       run: |
-        sudo apt-get update
-        sudo apt-get install -y firefox
-        GECKO_VERSION="0.34.0"
-        wget -q https://github.com/mozilla/geckodriver/releases/download/v${GECKO_VERSION}/geckodriver-v${GECKO_VERSION}-linux64.tar.gz
-        tar -xzf geckodriver-v${GECKO_VERSION}-linux64.tar.gz
-        chmod +x geckodriver
-        sudo mv geckodriver /usr/local/bin
-
+       sudo apt-get update
+       sudo apt-get install -y firefox
+       GECKO_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+       wget -q https://github.com/mozilla/geckodriver/releases/download/v${GECKO_VERSION}/geckodriver-v${GECKO_VERSION}-linux64.tar.gz
+       tar -xzf geckodriver-v${GECKO_VERSION}-linux64.tar.gz
+       chmod +x geckodriver
+       sudo mv geckodriver /usr/local/bin
 
     - name: Run facebook.robot test
       run: robot facebook.robot
