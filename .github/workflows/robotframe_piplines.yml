@@ -23,15 +23,16 @@ jobs:
       run: |
         pip install robotframework selenium
         # Tu peux aussi utiliser requirements.txt s’il existe
-    - name: Istall Webdriver Chorome 
+    - name: Istall mozilla  
       run: |
-        CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+')
-        CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${CHROME_VERSION}" || curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-        wget https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
-        unzip chromedriver_linux64.zip
-        chmod +x chromedriver
-        sudo mv chromedriver /usr/local/bin
-       
+        sudo apt-get update
+        sudo apt-get install -y firefox
+        GECKO_VERSION=$(curl -s https://api.github.com/repos/mozilla/geckodriver/releases/latest | grep '"tag_name":' | sed -E 's/.*"v([^"]+)".*/\1/')
+        wget -q https://github.com/mozilla/geckodriver/releases/download/v${GECKO_VERSION}/geckodriver-v${GECKO_VERSION}-linux64.tar.gz
+        tar -xzf geckodriver-v${GECKO_VERSION}-linux64.tar.gz
+        chmod +x geckodriver
+        sudo mv geckodriver /usr/local/bin
+
 
     - name: Run facebook.robot test
       run: robot facebook.robot
