@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 
 *** Test Cases ***
 test amazon
-    Open Browser    https://www.facebook.com    browser=firefox    executable_path=/usr/bin/firefox
+    Open Browser    https://www.amazon.fr    browser=firefox    executable_path=/usr/bin/firefox
     Maximize Browser Window
     Wait Until Element Is Visible    id=nav-logo-sprites    15s
     Manage_Coukies
