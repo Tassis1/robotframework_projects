@@ -21,6 +21,7 @@ jobs:
 
     - name: Install dependencies
       run: | 
+        pip install robotframework
         pip install robotframework-seleniumlibrary
         pip install -r requirements.txt
     - name: Istall mozilla  
