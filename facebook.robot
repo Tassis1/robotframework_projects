@@ -6,7 +6,7 @@ Creation compte facebook
 
     [Tags]  Facebook creation_de_compte sans_accepter_les_cookies
 
-    Open Browser    https://www.facebook.com/    firefox
+    Open Browser    https://www.facebook.com    browser=firefox    executable_path=/usr/bin/firefox
     ${Manage_cookies}=    Run Keyword And Ignore Error    Click Element   xpath=//span[text()='Decline optional cookies']
     Click Element   xpath=//a[contains(text(), 'Create new account')]
     ${Manage_cookies}=    Run Keyword And Ignore Error    Click Element   xpath=//span[text()='Decline optional cookies']
