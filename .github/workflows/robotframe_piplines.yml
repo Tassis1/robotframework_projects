@@ -21,8 +21,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install robotframework selenium
-        # Tu peux aussi utiliser requirements.txt s’il existe
+        pip install robotframework 
+        pip install robotframework-seleniumlibrary
+        pip install -r requirements.txt
     - name: Istall mozilla  
       run: |
         sudo apt-get update
