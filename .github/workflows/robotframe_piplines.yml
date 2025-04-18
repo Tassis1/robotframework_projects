@@ -33,6 +33,8 @@ jobs:
        tar -xzf geckodriver-v${GECKO_VERSION}-linux64.tar.gz
        chmod +x geckodriver
        sudo mv geckodriver /usr/local/bin
+    - name: Vérifier le chemin de Firefox
+      run: which firefox
 
     - name: Run facebook.robot test
       run: robot facebook.robot
