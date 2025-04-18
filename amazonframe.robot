@@ -3,7 +3,9 @@ Library    SeleniumLibrary
 
 *** Test Cases ***
 test amazon
-    Open Browser    https://www.amazon.fr    browser=firefox    executable_path=/usr/bin/firefox
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].FirefoxOptions()    sys, selenium.webdriver
+    Call Method    ${options}    add_argument    --headless
+    Open Browser    https://amazon.fr    browser=firefox    options=${options}
     Maximize Browser Window
     Wait Until Element Is Visible    id=nav-logo-sprites    15s
     Manage_Coukies
