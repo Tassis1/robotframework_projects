@@ -6,7 +6,7 @@ test amazon
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].FirefoxOptions()    sys, selenium.webdriver
     Call Method    ${options}    add_argument    --headless
     Open Browser    https://amazon.fr    browser=firefox    options=${options}
-    Maximize Browser Window
+    Maximize Browser Window 
     Wait Until Element Is Visible    id=nav-logo-sprites    15s
     Manage_Coukies
     Condition_get_galery           
